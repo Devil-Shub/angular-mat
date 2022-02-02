@@ -1,0 +1,36 @@
+<div fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Register</mat-card-title>
+    </mat-card-header>
+
+    <form class="example-form" [formGroup]="registerForm">
+
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <input formControlName="name" matInput placeholder="Username">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input formControlName="email" matInput placeholder="Email">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input type="password" formControlName="password" matInput placeholder="Password">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input type="password" formControlName="password_confirmation" matInput placeholder="Confirm Password">
+        </mat-form-field>
+
+      </mat-card-content>
+
+      <button [disabled]="!registerForm.valid || submitForm" (click)="register()" mat-stroked-button color="accent"
+        class="btn-block">
+        <mat-spinner *ngIf="submitForm" diameter="35"></mat-spinner>
+        <label *ngIf="!submitForm">Sign Up</label>
+      </button>
+
+    </form>
+  </mat-card>
+</div>
